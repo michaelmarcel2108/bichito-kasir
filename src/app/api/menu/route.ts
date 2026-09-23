@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
@@ -32,6 +33,7 @@ export async function POST(request: Request) {
     
     return NextResponse.json(newMenuItem, { status: 201 });
   } catch (error) {
+    console.error('Menu POST error:', error);
     return NextResponse.json({ error: 'Failed to create menu item' }, { status: 500 });
   }
 }
